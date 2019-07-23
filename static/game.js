@@ -41,7 +41,7 @@ function disp(id){
   console.log(id)
   var y=document.getElementById(id).offsetTop;
   var x=document.getElementById(id).offsetLeft;
-  if(y < 600 ){
+  if(y < 470 ){
     add = Math.random() * 30 ;
     if (Math.random() > .5) {
       add = add * -1
@@ -49,7 +49,7 @@ function disp(id){
     y= y + add;
     document.getElementById(id).style.top= y + "px"; // vertical movment
   }
-  if(x < 800){
+  if(x < 1200){
     add = Math.random() * 30 ;
     if (Math.random() > .5) {
       add = add * -1
