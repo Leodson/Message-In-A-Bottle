@@ -13,6 +13,13 @@ class IndexHandler(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'text/html'
         self.response.write(index_template.render())
 
+class SignUpHandler(webbapp2.RequestHandler):
+    def get(self):
+        index_template = jinja_env.get_template('templates/sign_up.html')
+        self.response.headers['Content-Type'] = 'text/html'
+        self.response.write(index_template.render())
+
 app = webapp2.WSGIApplication([
     ('/', IndexHandler),
+    ('/sign_up', SignUpHandler),
 ], debug=True)
