@@ -1,7 +1,7 @@
 from google.appengine.ext import ndb
 
 class User(ndb.Model):
-    user_name = ndb.StringProperty()
+    email_address = ndb.StringProperty()
     messages = ndb.KeyProperty(repeated = True)
 
 class Message(ndb.Model):
