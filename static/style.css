@@ -6,8 +6,10 @@
 
 header
 {
+     border:2px dashed blue;
      background-image: url(logo.jpg);
-     height: 100vh auto;
+     height: 100%;
+     width: 100%;
      background-size: cover;
      background-position: center;
 }
@@ -22,7 +24,7 @@ header
   text-decoration:none;
   padding: 5px 20px
   font-family: "Roboto", sans-serif;
-  font-size: 15px
+  font-size: 100px
 }
 
 .main-nav li.active a
