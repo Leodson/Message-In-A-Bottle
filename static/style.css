@@ -6,8 +6,10 @@
 
 header
 {
+     border:2px dotted blue;
      background-image: url(logo.jpg);
-     height: 100vh auto;
+     height: 100%;
+     width: 100%;
      background-size: cover;
      background-position: center;
 }
