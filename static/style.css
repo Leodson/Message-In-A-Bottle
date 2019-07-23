@@ -12,8 +12,21 @@ header
      width: 100%;
      background-size: cover;
      background-position: center;
+
 }
 
+header
+{
+  border:2px dashed lightblue;
+  background-image: url(gif1.gif);
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+
+
+
+}
 .main-nav li{
   display: inline-block;
 }
