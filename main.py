@@ -81,7 +81,7 @@ class ViewMessagesHandler(webapp2.RequestHandler):
         first_20_char = []
 
         for message in all_messages:
-            if len(message) > 20
+            if len(message) > 20:
                 first_20_char.append(message[0:20])
             else:
                 first_20_char.append(message)
