@@ -5,8 +5,10 @@
     <title>Message in a bottle View Messges</title>
   </head>
   <body>
-    {% for first_20_char in range(1) %}
-    <input type="box" name="message" placeholder="first_20_char"><br>
+    {% for item in first_20_char %}
+      <div class="boxed">
+        {{ item }}
+      </div>
     {% endfor %}
   </body>
 </html>

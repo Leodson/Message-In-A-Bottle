@@ -1,0 +1,18 @@
+body{
+  background-image: url("../static/winner.jpg");
+  background-color: black
+}
+
+p{
+  align-items: center;
+  color: white;
+  font-size: 50px;
+  font-weight: bolder;
+}
+
+p2{
+  align-items: right;
+  color: white;
+  font-size: 40px
+  font-weight: bolder;
+}
