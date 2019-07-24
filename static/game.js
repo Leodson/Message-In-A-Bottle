@@ -1,3 +1,5 @@
+
+
 function reset1(){
 clearTimeout(my_time);
 document.getElementById('i1').style.left= "500px";
