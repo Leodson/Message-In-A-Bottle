@@ -64,7 +64,7 @@ class CreateHandler(webapp2.RequestHandler):
 
         curr_message = Message(
             message_txt = new_message_txt,
-            sender = curr_user.key(),
+            sender = curr_user.key,
             opened = False
             )
 
@@ -80,7 +80,7 @@ class ViewMessagesHandler(webapp2.RequestHandler):
 
         message_txt = [key.get().message_txt for key in message_keys]
         first_20_char = [txt[0:20] if len(txt) > 20 else txt for txt in message_txt]
-        
+
         template_vars = {
             'first_20_char' : first_20_char,
             'messages' : message_txt,
