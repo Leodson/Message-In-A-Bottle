@@ -76,7 +76,7 @@ class ViewMessagesHandler(webapp2.RequestHandler):
 
         curr_user_email_address = users.get_current_user().nickname()
         curr_user = User.query(User.email_address == curr_user_email_address).get()
-        all_messages = curr_user.messages()
+        all_messages = curr_user.messages
 
         first_20_char = []
 
