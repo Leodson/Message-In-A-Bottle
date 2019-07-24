@@ -1,0 +1,27 @@
+nav{
+  border:2px dotted blue;
+  background-color: lightblue;
+  font-weight: bold;
+  color:white;
+
+  display: flex;
+}
+.spacer{
+  flex-wrap: nowrap;
+  flex-grow: 1;
+  border: 1px solid blue;
+}
+
+#Welcome{
+  font-size: 20px;
+  margin-left:20px;
+}
+.menu-link{
+  color: white;
+  padding: 10px
+
+}
+.menu-link:hover{
+  color:red;
+
+}
