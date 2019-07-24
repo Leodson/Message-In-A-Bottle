@@ -9,7 +9,7 @@ nav{
 .spacer{
   flex-wrap: nowrap;
   flex-grow: 1;
-  border: 1px solid blue;
+  
 }
 
 #Welcome{
@@ -24,4 +24,15 @@ nav{
 .menu-link:hover{
   color:red;
 
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }

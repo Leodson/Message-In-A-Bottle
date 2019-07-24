@@ -2,7 +2,7 @@ import jinja2
 import os
 import webapp2
 from google.appengine.api import users
-import models
+from models import User, Message
 import random
 
 jinja_env = jinja2.Environment(
@@ -16,7 +16,7 @@ class IndexHandler(webapp2.RequestHandler):
         curr_user = users.get_current_user()
 
         if curr_user:
-            if not User.query(curr_user.nickname() == User.email_address).get():
+            if not User.query(User.email_address == curr_user.nickname()).get():
                 new_user_email_address = users.get_current_user().nickname()
                 new_user = User(
                     email_address = new_user_email_address
@@ -75,7 +75,7 @@ class ViewMessagesHandler(webapp2.RequestHandler):
     def get(self):
 
         curr_user_email_address = users.get_current_user().nickname()
-        curr_user = User.query(curr_user_email_address == User.email_address).get()
+        curr_user = User.query(User.email_address == curr_user_email_address).get()
         all_messages = curr_user.messages()
 
         first_20_char = []
