@@ -9,3 +9,4 @@ class Message(ndb.Model):
     message_txt = ndb.TextProperty()
     sender = ndb.KeyProperty()
     reciever = ndb.KeyProperty()
+    # ability to check if the message was viewed

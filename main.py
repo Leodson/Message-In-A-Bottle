@@ -12,9 +12,26 @@ jinja_env = jinja2.Environment(
 
 class IndexHandler(webapp2.RequestHandler):
     def get(self):
+
+        curr_user = users.get_current_user()
+
+        if curr_user:
+            if not User.query(curr_user.nickname() == User.email_address).get():
+                new_user_email_address = users.get_current_user()
+                new_user = User(
+                    email_address = new_user_email_address
+                )
+                new_user.put()
+            self.redirect('/profile')
+
+        login_url = users.create_login_url('/')
+        template_vars = {
+            'login_url' : login_url
+        }
+
         index_template = jinja_env.get_template('templates/index.html')
         self.response.headers['Content-Type'] = 'text/html'
-        self.response.write(index_template.render())
+        self.response.write(index_template.render(template_vars))
 
 class ProfileHandler(webbapp2.RequestHandler):
     def get(self):
@@ -33,10 +50,9 @@ class CreateHandler(webbapp2.RequestHandler):
         user = user.get_current_user()
 
         possible_recievers = User.query.fetch()
-        num_possible_recievers = len(possible_recievers)
-        rand_reciever = possible_recievers[random.randInt(0, num_possible_recievers - 1)]
+        rand_reciever = random.choice(possible_recievers)
         while rand_reciever.email_address == user:
-            rand_reciever = possible_recievers[random.randInt(0, num_possible_recievers - 1)]
+            rand_reciever = random.choice(possible_recievers)
 
         curr_message = Message(
             message_txt = curr_message_txt,
@@ -44,8 +60,8 @@ class CreateHandler(webbapp2.RequestHandler):
             reciever = rand_reciever
             )
 
-        curr_message.put()
-
+        rand_reciever.messages.append(curr_message.put())
+        rand_reciever.put()
 
 class ViewMessagesHandler(webbapp2.RequestHandler):
     def get(self):
