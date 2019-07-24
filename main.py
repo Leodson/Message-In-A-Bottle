@@ -57,10 +57,12 @@ class CreateHandler(webapp2.RequestHandler):
         curr_user = User.query(User.email_address == users.get_current_user().email()).get()
 
         possible_recievers = User.query(User.email_address != curr_user.email_address).fetch()
-        if len(possible_recievers) <= 1:
-            rand_reciever = curr_user
-        else:
-            rand_reciever = random.choice(possible_recievers)
+        # if len(possible_recievers) <= 1:
+        #     rand_reciever = curr_user
+        # else:
+        #     rand_reciever = random.choice(possible_recievers)
+# just to test
+        rand_reciever = curr_user
 
         curr_message = Message(
             message_txt = new_message_txt,
@@ -78,12 +80,14 @@ class ViewMessagesHandler(webapp2.RequestHandler):
         curr_user = User.query(User.email_address == users.get_current_user().email()).get()
         message_keys = curr_user.messages
 
-        message_txt = [key.get().message_txt for key in message_keys]
-        first_20_char = [txt[0:20] if len(txt) > 20 else txt for txt in message_txt]
+        message_txts = [str(key.get().message_txt) for key in message_keys]
+        print(message_txts)
+        first_20_char = [txt[0:20] if len(txt) > 20 else txt for txt in message_txts]
+        #print(first_20_char)
 
         template_vars = {
             'first_20_char' : first_20_char,
-            'messages' : message_txt,
+            'messages' : message_txts,
         }
 
         view_messages_template = jinja_env.get_template('templates/view_messages.html')
