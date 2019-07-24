@@ -69,22 +69,19 @@ class CreateHandler(webapp2.RequestHandler):
         rand_reciever.messages.append(curr_message.put())
         rand_reciever.put()
 
-<<<<<<< HEAD
-=======
         self.redirect('/profile')
 
->>>>>>> e787b4ba8897b02b335333891f59a6e8580abe16
 class ViewMessagesHandler(webapp2.RequestHandler):
     def get(self):
 
         curr_user_email_address = users.get_current_user().nickname()
-        curr_user = User.query(curr_user_email_address == User.email_address).get()
+        curr_user = User.query(User.email_address == curr_user_email_address).get()
         all_messages = curr_user.messages()
 
         first_20_char = []
 
         for message in all_messages:
-            if len(message) > 20
+            if len(message) > 20:
                 first_20_char.append(message[0:20])
             else:
                 first_20_char.append(message)
