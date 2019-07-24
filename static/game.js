@@ -74,3 +74,13 @@ function timers() {
   disp('i10')
   my_time=setTimeout('timers()',10);
 }
+
+var timeleft = 10;
+var downloadTimer = setInterval(function(){
+  document.getElementById("countdown").innerHTML = timeleft + " SECONDS REMAINING";
+  timeleft -= 1;
+  if(timeleft <= 0){
+    clearInterval(downloadTimer);
+    document.getElementById("countdown").innerHTML = "Finished"
+  }
+}, 1000);
