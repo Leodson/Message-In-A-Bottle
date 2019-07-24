@@ -2,6 +2,7 @@ from google.appengine.api import users
 from models import User, Message
 import jinja2
 import os
+import random
 import webapp2
 
 # for each Handler, make sure that it only executes if they are actually signed in
@@ -56,7 +57,10 @@ class CreateHandler(webapp2.RequestHandler):
         curr_user = User.query(User.email_address == users.get_current_user().email()).get()
 
         possible_recievers = User.query(User.email_address != curr_user.email_address).fetch()
-        rand_reciever = random.choice(possible_recievers)
+        if len(possible_recievers) <= 1:
+            rand_reciever = curr_user
+        else:
+            rand_reciever = random.choice(possible_recievers)
 
         curr_message = Message(
             message_txt = new_message_txt,
@@ -75,7 +79,7 @@ class ViewMessagesHandler(webapp2.RequestHandler):
         message_keys = curr_user.messages
 
         message_txt = [key.get().message_txt for key in message_keys]
-        first_20_char = [txt[0:20] for txt in message_txt if len(txt) > 20 else txt]
+        first_20_char = [txt[0:20] if len(txt) > 20 else txt for txt in message_txt]
 
         template_vars = {
             'first_20_char' : first_20_char,

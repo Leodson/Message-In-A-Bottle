@@ -1,15 +1,17 @@
+<!-- https://www.w3schools.com/html/html_form_attributes.asp -->
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title> A Message in the bottle Create Messages </title>
+    <title> Compose Message </title>
     <link href= "../static/createstyle.css" rel= "stylesheet" type="text/css">
   </head>
   <body>
-    <form>
+    <form action="/create" method="post">
       Create Your Positive Message:<br>
-      <input type="text" name="Create Your Postive message"><br>
+      <input type="text" name="message" placeholder="Compose message"><br>
+      <input type="submit" value="Submit">
     </form>
-
   </body>
 </html>
