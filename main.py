@@ -33,13 +33,13 @@ class IndexHandler(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'text/html'
         self.response.write(index_template.render(template_vars))
 
-class ProfileHandler(webbapp2.RequestHandler):
+class ProfileHandler(webapp2.RequestHandler):
     def get(self):
         profile_template = jinja_env.get_template('templates/profile.html')
         self.response.headers['Content-Type'] = 'text/html'
         self.response.write(profile_template.render())
 
-class CreateHandler(webbapp2.RequestHandler):
+class CreateHandler(webapp2.RequestHandler):
     def get(self):
         create_template = jinja_env.get_template('templates/create.html')
         self.response.headers['Content-Type'] = 'text/html'
@@ -63,13 +63,13 @@ class CreateHandler(webbapp2.RequestHandler):
         rand_reciever.messages.append(curr_message.put())
         rand_reciever.put()
 
-class ViewMessagesHandler(webbapp2.RequestHandler):
+class ViewMessagesHandler(webapp2.RequestHandler):
     def get(self):
         view_messages_template = jinja_env.get_template('templates/view_messages.html')
         self.response.headers['Content-Type'] = 'text/html'
         self.response.write(view_messages_template.render())
 
-class PlayGameHandler(webbapp2.RequestHandler):
+class PlayGameHandler(webapp2.RequestHandler):
     def get(self):
         play_game_template = jinja_env.get_template('templates/play_game.html')
         self.response.headers['Content-Type'] = 'text/html'
@@ -78,9 +78,8 @@ class PlayGameHandler(webbapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', IndexHandler),
-    ('/sign_up', SignUpHandler),
     ('/profile', ProfileHandler),
     ('/create', CreateHandler),
-    ('/view_messages' ViewMessagesHandler),
+    ('/view_messages', ViewMessagesHandler),
     ('/play_game', PlayGameHandler),
 ], debug=True)
