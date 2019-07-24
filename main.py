@@ -1,9 +1,10 @@
+from google.appengine.api import users
+from models import User, Message
 import jinja2
 import os
 import webapp2
-from google.appengine.api import users
-from models import User, Message
-import random
+
+# for each Handler, make sure that it only executes if they are actually signed in
 
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -51,20 +52,14 @@ class CreateHandler(webapp2.RequestHandler):
         self.response.write(create_template.render())
 
     def post(self):
-        curr_message_txt = self.request.get('message')
-        curr_user_email_address = users.get_current_user().nickname()
-        curr_user = User.query(User.email_address == curr_user_email_address).get()
+        new_message_txt = self.request.get('message')
+        curr_user = User.query(User.email_address == users.get_current_user().email()).get()
 
-        possible_recievers = User.query.fetch()
-        if len(possible_recievers) > 1:
-            rand_reciever = random.choice(possible_recievers)
-            while rand_reciever.email_address == curr_user.email_address:
-                rand_reciever = random.choice(possible_recievers)
-        else:
-            rand_reciever = curr_user
+        possible_recievers = User.query(User.email_address != curr_user.email_address).fetch()
+        rand_reciever = random.choice(possible_recievers)
 
         curr_message = Message(
-            message_txt = curr_message_txt,
+            message_txt = new_message_txt,
             sender = curr_user.key(),
             opened = False
             )
@@ -76,13 +71,11 @@ class CreateHandler(webapp2.RequestHandler):
 
 class ViewMessagesHandler(webapp2.RequestHandler):
     def get(self):
-        curr_user_email_address = users.get_current_user().nickname()
-        curr_user = User.query(User.email_address == curr_user_email_address).get()
+        curr_user = User.query(User.email_address == users.get_current_user().email()).get()
         message_keys = curr_user.messages
 
-        all_message_txt = [key.get().message_txt for key in message_keys]
-
-        first_20_char = [txt[0:20] for txt in all_message_txt if len(txt) > 20 else txt]
+        message_txt = [key.get().message_txt for key in message_keys]
+        first_20_char = [txt[0:20] for txt in message_txt if len(txt) > 20 else txt]
 
         template_vars = {
             'first_20_char' : first_20_char,
@@ -95,18 +88,17 @@ class ViewMessagesHandler(webapp2.RequestHandler):
 
 class PlayGameHandler(webapp2.RequestHandler):
     def get(self):
-        curr_user_email_address = users.get_current_user().nickname()
-        curr_user = User.query(User.email_address == curr_user_email_address).get()
-        message_keys = curr_user.messages
+        curr_user = User.query(User.email_address == users.get_current_user().email()).get()
+        all_message_keys = curr_user.messages
         unopened_message_keys = [key for key in message_keys if key.get().opened == False]
+
+        template_vars = {
+            'messages' : unopened_message_keys
+        }
 
         play_game_template = jinja_env.get_template('templates/play_game.html')
         self.response.headers['Content-Type'] = 'text/html'
-        self.response.write(play_game_template.render())
-
-
-        #send the java the random messages
-        #check if they are signed there, if not redirect them to the sign in page
+        self.response.write(play_game_template.render(template_vars))
 
 
 app = webapp2.WSGIApplication([
