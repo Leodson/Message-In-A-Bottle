@@ -83,11 +83,11 @@ class ViewMessagesHandler(webapp2.RequestHandler):
 
         message_txts = [str(key.get().message_txt) for key in message_keys]
         print(message_txts)
-        first_20_char = [txt[0:20] if len(txt) > 20 else txt for txt in message_txts]
+        first_50_char = [txt[0:60] if len(txt) > 60 else txt for txt in message_txts]
         #print(first_20_char)
 
         template_vars = {
-            'first_20_char' : first_20_char,
+            'first_20_char' : first_50_char,
             'messages' : message_txts,
         }
 
