@@ -7,7 +7,7 @@ html{
   padding: 0;
 }
 
-header
+
 {
      border:20px dashed blue;
      background-image: url(logo.jpg);
@@ -18,14 +18,15 @@ header
 
 }
 
-header
+.bg
 {
     border:2px dashed lightblue;
     background-image: url(gif1.gif);
-    height: 140%;
-    width: 110%;
+    height: 100%;
+
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 
 }
 
@@ -68,7 +69,7 @@ button {
   width: 100%;
   opacity: 0.5;
   filter: alpha(opacity=50); /* For IE8 and earlier */
-  position: relative; top: -125px
+  position: relative; top: -150px;
 }
 
 button:hover {
