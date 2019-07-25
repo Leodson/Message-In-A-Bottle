@@ -1,5 +1,5 @@
 .zoom{
-  zoom: 90%
+  zoom: 67%
 }
 
 .gameBoard{
@@ -57,7 +57,7 @@ button {
 }
 
 P {
-  font-size: 25px;
+  font-size: 40px;
   font-weight: bolder;
   text-align: center;
   color: white;
