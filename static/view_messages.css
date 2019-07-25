@@ -1,0 +1,16 @@
+div
+{
+  background-color: lightblue;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  font-family: Cedarville Cursive, serif;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  width: 30%;
+  font-size: 40px;
+  resize: none;
+  border: none;
+  margin-top: 10px;
+}
