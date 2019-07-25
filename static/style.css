@@ -26,14 +26,21 @@ header
     width: 100%;
     background-size: cover;
     background-position: center;
-
-
-
+    position: absolute;
+    top: 0;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index: -1;
 }
 
 body
 {
   height:100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
 }
 
 * {box-sizing: border-box}
@@ -72,13 +79,14 @@ button {
   margin: 8px 0;
   border: 2px solid black;
   cursor: pointer;
-  width: 50%;
   opacity: 0.5;
   filter: alpha(opacity=50); /* For IE8 and earlier */
-  position: relative; top: -800px;
   perspective-origin: center;
+  width: 100%;
 }
-
+.loginlink{
+  width: 50%;
+}
 button:hover {
   opacity:1;
 }
