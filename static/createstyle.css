@@ -1,7 +1,37 @@
-*
-input[type=text] {
-  width: 100%;
-  padding: 200px 200px;
-  margin: 8px 0;
-  box-sizing: border-box;
+/* The size of a textarea can also be specified by the CSS height and width properties. */
+
+html {
+  background: url("paper.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+textarea
+{
+  background: transparent;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+	height: 600px;
+	padding: 5px;
+	font-family: Cedarville Cursive, serif;
+	background-position: bottom right;
+	background-repeat: no-repeat;
+  width: 30%;
+  font-size: 40px;
+  resize: none;
+  border: none;
+  margin-top: 100px
+}
+
+input
+{
+  background-color: white;
+  height: 50px;
+  width: 150px;
+  font-size: 20px;
+  position: relative;
+  left: 550px;
 }
