@@ -6,6 +6,7 @@ import random
 import webapp2
 
 # for each Handler, make sure that it only executes if they are actually signed in
+# Make sure that they can only click create message if it is not blank
 
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
