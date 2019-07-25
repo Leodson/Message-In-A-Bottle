@@ -6,6 +6,7 @@ import random
 import webapp2
 
 # for each Handler, make sure that it only executes if they are actually signed in
+# Make sure that they can only click create message if it is not blank
 
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -98,7 +99,7 @@ class PlayGameHandler(webapp2.RequestHandler):
     def get(self):
         curr_user = User.query(User.email_address == users.get_current_user().email()).get()
         all_message_keys = curr_user.messages
-        unopened_message_keys = [key for key in message_keys if key.get().opened == False]
+        unopened_message_keys = [key for key in all_message_keys if key.get().opened == False]
 
         template_vars = {
             'messages' : unopened_message_keys

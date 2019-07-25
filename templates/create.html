@@ -2,16 +2,14 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title> Compose Message </title>
+    <title>Compose Mesage</title>
     <link href= "../static/createstyle.css" rel= "stylesheet" type="text/css">
   </head>
   <body>
-  <h2>Positive Tides</h2>
-  <p>A place in a message in the bottle, where you could share your positive tides with others</p>
-<form action="/create" method="post">
-  <textarea name="message" placeholder="compose message" rows="10" cols="30"></textarea>
-  <br>
-  <input type="submit">
-</form>
+    <form action="/create" method="post">
+      <textarea name="message" placeholder="Compose message" rows="10" cols="30" maxlength="500"></textarea>
+      <br>
+      <input type="submit">
+    </form>
   </body>
 </html>
