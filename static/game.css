@@ -1,3 +1,7 @@
+.zoom{
+  zoom: 90%
+}
+
 button {
   background-color: #0a3845;
   border: none;
@@ -23,6 +27,7 @@ button {
   font-weight: bolder;
   text-align: right;
   color: white;
+  font-family: 'Corben', Georgia, Times, serif;
 }
 
 .sliding-background {
@@ -39,4 +44,12 @@ button {
   100%{
     transform: translate3d(-1692px, 0, 0);
   }
+}
+
+P {
+  font-size: 25px;
+  font-weight: bolder;
+  text-align: center;
+  color: white;
+  font-family: 'Corben', Georgia, Times, serif;
 }
