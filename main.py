@@ -104,7 +104,7 @@ class PlayGameHandler(webapp2.RequestHandler):
             'messages' : unopened_message_keys
         }
 
-        play_game_template = jinja_env.get_template('templates/play_game.html')
+        play_game_template = jinja_env.get_template('templates/game.html')
         self.response.headers['Content-Type'] = 'text/html'
         self.response.write(play_game_template.render(template_vars))
 
