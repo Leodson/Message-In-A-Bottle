@@ -89,8 +89,15 @@ button {
 }
 button:hover {
   opacity:1;
+  color:blue;
 }
+.footer {
+    position:absolute;
+    bottom:0;
 
+    width:100%;
+    display:block;
+}
 /* Extra styles for the cancel button */
 .cancelbtn {
   padding: 14px 20px;
