@@ -98,7 +98,7 @@ class PlayGameHandler(webapp2.RequestHandler):
     def get(self):
         curr_user = User.query(User.email_address == users.get_current_user().email()).get()
         all_message_keys = curr_user.messages
-        unopened_message_keys = [key for key in message_keys if key.get().opened == False]
+        unopened_message_keys = [key for key in all_message_keys if key.get().opened == False]
 
         template_vars = {
             'messages' : unopened_message_keys
