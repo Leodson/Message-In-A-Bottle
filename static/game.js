@@ -8,12 +8,12 @@ document.getElementById('i2').style.left= "400px";
 document.getElementById('i2').style.top= "200px";
 document.getElementById('i3').style.left= "800px";
 document.getElementById('i3').style.top= "430px";
-document.getElementById('i4').style.left= "270px";
+document.getElementById('i4').style.left= "340px";
 document.getElementById('i4').style.top= "510px";
-document.getElementById('i5').style.left= "195px";
+document.getElementById('i5').style.left= "675px";
 document.getElementById('i5').style.top= "90px";
 document.getElementById('i6').style.left= "600px";
-document.getElementById('i6').style.top= "110px";
+document.getElementById('i6').style.top= "500px";
 document.getElementById('i7').style.left= "610px";
 document.getElementById('i7').style.top= "260px";
 document.getElementById('i8').style.left= "1100px";
@@ -38,21 +38,21 @@ function move_img(str, id) {
 
 
 function disp(id){
-  var step=2; // Change this step value
+  var step=1; // Change this step value
   //alert("Hello");
   console.log(id)
   var y=document.getElementById(id).offsetTop;
   var x=document.getElementById(id).offsetLeft;
-  if(y < 470 ){
-    add = Math.random() * 30 ;
+  if(y < 700){
+    add = Math.random() * 20 ;
     if (Math.random() > .5) {
       add = add * -1
     }
     y= y + add;
     document.getElementById(id).style.top= y + "px"; // vertical movment
   }
-  if(x < 1200){
-    add = Math.random() * 30 ;
+  if(x < 2000){
+    add = Math.random() * 20 ;
     if (Math.random() > .5) {
       add = add * -1
     }

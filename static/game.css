@@ -2,6 +2,13 @@
   zoom: 90%
 }
 
+.gameBoard{
+  position: relative;
+  border: 5px solid black;
+  height: 560px;
+  width: 5076px;
+}
+
 button {
   background-color: #0a3845;
   border: none;
@@ -32,8 +39,11 @@ button {
 
 .sliding-background {
   background: url("ocean.jpg") repeat-x;
-  height: 560px;
-  width: 5076px;
+  position:absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   animation: slide 60s linear infinite;
 }
 

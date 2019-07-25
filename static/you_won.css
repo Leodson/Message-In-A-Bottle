@@ -1,18 +1,22 @@
-/* body{
-  background-image: url("../static/winner.jpg");
+.zoom{
+  zoom: 250%
+}
+
+body{
+  background-image: url("../static/winning.gif");
   background-color: black
-} */
+}
 
 p{
   align-items: center;
-  color: white;
+  color: ##00ffff;
   font-size: 50px;
   font-weight: bolder;
 }
 
 p2{
   align-items: right;
-  color: white;
+  color: #black;
   font-size: 40px
   font-weight: bolder;
 }
@@ -25,4 +29,10 @@ body {
 .wrapper {
   position: relative;
   min-height: 100vh;
+}
+
+display: block;
+width: 100%;
+heigth: 100%;
+align: center;
 }
