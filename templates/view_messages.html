@@ -4,13 +4,16 @@
     <meta charset="utf-8">
     <link href= "../static/view_messages.css" rel= "stylesheet" type="text/css">
     <title>View Messages</title>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Cedarville+Cursive">
   </head>
   <body>
-    <h1>View The Messages You have Recieved</h1>
+    <h1>Click on a bottle to read a message</h1>
     {% for item in first_20_char %}
-      <div class="boxed">
-        {{ item }}...
-      </div>
+        <div class="container">
+          <img src="../static/bottle4.png" alt="Snow" style="width:100%;">
+          <div class="centered">{{ item }}...</div>
+        </div>
     {% endfor %}
   </body>
 </html>
