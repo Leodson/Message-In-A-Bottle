@@ -12,8 +12,12 @@
     {% for message in messages %}
         <div class="container">
           <img src="../static/bottle4.png" alt="Snow" style="width:100%;">
-          <div class="centered">{{ message[0:20] }}...</div>
-          <span class="popuptext" id="myPopup">{{ message }}</span>
+          <div class="centered">{{ message.get().message_txt[0:20] }}...</div>
+          {% if message.get().opened %}
+            <span class="popuptext" id="myPopup">{{ message.get().message_txt }}</span>
+          {% else %}
+            <span class="popuptext" id="myPopup" style="background-color:red">This message is locked. Play the game to unlock it.</span>
+          {% endif %}
         </div>
     {% endfor %}
   </body>

@@ -92,7 +92,7 @@ class ViewMessagesHandler(webapp2.RequestHandler):
 
         template_vars = {
             'first_20_char' : first_50_char,
-            'messages' : message_txts,
+            'messages' : message_keys,
         }
 
         view_messages_template = jinja_env.get_template('templates/view_messages.html')
