@@ -58,11 +58,10 @@ class CreateHandler(webapp2.RequestHandler):
         curr_user = User.query(User.email_address == users.get_current_user().email()).get()
 
         possible_recievers = User.query(User.email_address != curr_user.email_address).fetch()
-        # if len(possible_recievers) <= 1:
-        #     rand_reciever = curr_user
-        # else:
-        #     rand_reciever = random.choice(possible_recievers)
-# just to test
+        if len(possible_recievers) <= 1:
+            rand_reciever = curr_user
+        else:
+             rand_reciever = random.choice(possible_recievers)
         rand_reciever = curr_user
 
         curr_message = Message(
