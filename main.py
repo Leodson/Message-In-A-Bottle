@@ -62,7 +62,6 @@ class CreateHandler(webapp2.RequestHandler):
             rand_reciever = curr_user
         else:
              rand_reciever = random.choice(possible_recievers)
-        rand_reciever = curr_user
 
         curr_message = Message(
             message_txt = new_message_txt,
