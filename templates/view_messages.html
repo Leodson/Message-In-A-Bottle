@@ -9,11 +9,13 @@
   </head>
   <body>
     <h1>Click on a bottle to read a message</h1>
-    {% for item in first_20_char %}
+    {% for message in messages %}
         <div class="container">
           <img src="../static/bottle4.png" alt="Snow" style="width:100%;">
-          <div class="centered">{{ item }}...</div>
+          <div class="centered">{{ message[0:20] }}...</div>
+          <span class="popuptext" id="myPopup">{{ message }}</span>
         </div>
     {% endfor %}
   </body>
+  <script src="../static/view.js"></script>
 </html>

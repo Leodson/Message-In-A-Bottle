@@ -120,5 +120,5 @@ app = webapp2.WSGIApplication([
     ('/create', CreateHandler),
     ('/view_messages', ViewMessagesHandler),
     ('/play_game', PlayGameHandler),
-    ('/about', AboutHandler)
+    ('/about', AboutHandler),
 ], debug=True)
