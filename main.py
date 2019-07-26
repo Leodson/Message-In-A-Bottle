@@ -103,6 +103,7 @@ class ViewMessagesHandler(webapp2.RequestHandler):
             for message in message_keys:
                 if message.get().opened == False:
                     unopened_message_keys.append(message)
+        if len(unopened_message_keys) > 0:
             unopened_message_keys[0].get().opened = True
             unopened_message_keys[0].get().put()
 
