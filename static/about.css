@@ -19,5 +19,26 @@ img{
 }
 
 .visual{
+  display: flex;
+  flex-direction: row;
   position: relative;
+}
+
+.description{
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+}
+
+.title{
+  text-align: center;
+  font-size: 60px;
+  font-style: bolder;
+}
+#ty{
+  text-align: right;
+  font-size: 30px;
+  font-style: italic;
+  right: 30px;
+
 }
