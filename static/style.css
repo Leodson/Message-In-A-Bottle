@@ -10,7 +10,7 @@ html{
 header
 {
      border:20px dashed blue;
-     background-image: url(logo.jpg);
+     background-image: url(logo.jpg) no repeat center center fixed;
      height: 110%;
      width: 100%;
      background-size: cover;
