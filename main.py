@@ -92,12 +92,22 @@ class ViewMessagesHandler(webapp2.RequestHandler):
 
         template_vars = {
             'first_20_char' : first_50_char,
-            'messages' : message_txts,
+            'messages' : message_keys,
         }
 
         view_messages_template = jinja_env.get_template('templates/view_messages.html')
         self.response.headers['Content-Type'] = 'text/html'
         self.response.write(view_messages_template.render(template_vars))
+        if "play_game" in self.request.referer:
+            unopened_message_keys = []
+            for message in message_keys:
+                if message.get().opened == False:
+                    unopened_message_keys.append(message)
+        if len(unopened_message_keys) > 0:
+            unopened_message_keys[0].get().opened = True
+            unopened_message_keys[0].get().put()
+
+
 
 class PlayGameHandler(webapp2.RequestHandler):
     def get(self):
@@ -120,5 +130,5 @@ app = webapp2.WSGIApplication([
     ('/create', CreateHandler),
     ('/view_messages', ViewMessagesHandler),
     ('/play_game', PlayGameHandler),
-    ('/about', AboutHandler)
+    ('/about', AboutHandler),
 ], debug=True)
