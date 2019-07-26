@@ -58,12 +58,10 @@ class CreateHandler(webapp2.RequestHandler):
         curr_user = User.query(User.email_address == users.get_current_user().email()).get()
 
         possible_recievers = User.query(User.email_address != curr_user.email_address).fetch()
-        # if len(possible_recievers) <= 1:
-        #     rand_reciever = curr_user
-        # else:
-        #     rand_reciever = random.choice(possible_recievers)
-# just to test
-        rand_reciever = curr_user
+        if len(possible_recievers) <= 1:
+            rand_reciever = curr_user
+        else:
+             rand_reciever = random.choice(possible_recievers)
 
         curr_message = Message(
             message_txt = new_message_txt,
@@ -75,6 +73,12 @@ class CreateHandler(webapp2.RequestHandler):
         rand_reciever.put()
 
         self.redirect('/profile')
+
+class AboutHandler(webapp2.RequestHandler):
+    def get(self):
+        create_template = jinja_env.get_template('templates/about.html')
+        self.response.headers['Content-Type'] = 'text/html'
+        self.response.write(create_template.render())
 
 class ViewMessagesHandler(webapp2.RequestHandler):
     def get(self):
@@ -116,4 +120,5 @@ app = webapp2.WSGIApplication([
     ('/create', CreateHandler),
     ('/view_messages', ViewMessagesHandler),
     ('/play_game', PlayGameHandler),
+    ('/about', AboutHandler)
 ], debug=True)
