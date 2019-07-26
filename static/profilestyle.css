@@ -37,6 +37,8 @@ body {
 
 header {
   background-image: url(giphy.gif);
+  background-position: top  bottom ;
+  background-size: 100% 100%;
   padding: 42px;
   text-align: center;
   font-size: 35px;
@@ -55,12 +57,14 @@ article {
   -ms-flex: 3;
   flex: 3;
   background-image: url(giphy4.gif);
-  padding: 40px;
+  background-size: 100% 100%;
+  padding: 30px;
 }
 
 
 footer {
   background-image:url(giphy5.gif);
+  background-size: 100% 100%;
   padding: 20px;
   text-align: center;
   color: white;
