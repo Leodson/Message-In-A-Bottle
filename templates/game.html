@@ -8,6 +8,14 @@
   </title>
   <link rel="stylesheet" href="/static/game.css">
 </head>
+<div class="buttonHolder">
+  <button id = "startbutton">
+  <input type=button onClick=startGame() value='START' style = "font-size: 25px; width: 100%; height: 100%">
+
+  <button id = "resetbutton">
+    <input type=button onClick=reset1() value='RESET' style= "font-size: 25px; width: 100%; height: 100%">
+    <div id='msg'></div>
+</div>
   <body background =  "static/ocean.jpg">
     <div class="container">
   <div class = "gameBoard">
@@ -32,13 +40,6 @@
 
 <br><br><br><br>
 
-<div class="buttonHolder">
-  <button id = "startbutton">
-  <input type=button onClick=startGame() value='START' style = "font-size: 25px; width: 100%; height: 100%">
 
-  <button id = "resetbutton">
-    <input type=button onClick=reset1() value='RESET' style= "font-size: 25px; width: 100%; height: 100%">
-    <div id='msg'></div>
-</div>
 </body>
 </html>
