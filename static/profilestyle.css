@@ -32,19 +32,22 @@ nav{
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+
 }
 
 header {
   background-image: url(giphy.gif);
-  padding: 30px;
+  padding: 42px;
   text-align: center;
   font-size: 35px;
   color: white;
+  height:33%;
 }
 
 section {
   display: -webkit-flex;
   display: flex;
+  height:17em;
 }
 
 article {
@@ -52,15 +55,16 @@ article {
   -ms-flex: 3;
   flex: 3;
   background-image: url(giphy4.gif);
-  padding: 37px;
+  padding: 40px;
 }
 
 
 footer {
   background-image:url(giphy5.gif);
-  padding: 10px;
+  padding: 20px;
   text-align: center;
   color: white;
+  height:17em;
 }
 
 /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
