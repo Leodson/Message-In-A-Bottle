@@ -7,19 +7,31 @@ html
   background-size: cover;
 }
 
-img
+div
 {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  padding: -500px;
   background-position: bottom right;
   background-repeat: no-repeat;
-  width: 75%;
-  font-size: 40px;
+  width: 50%;
   resize: none;
   border: none;
-  margin-top: 10px;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.centered {
+  font-size: 30px;
+  color: black;
+  position: absolute;
+  top: 63%;
+  left: 37%;
+  transform: translate(-50%, -50%);
+  font-family: Cedarville Cursive, serif;
 }
 
 h1
@@ -28,4 +40,5 @@ h1
   font-size: 50px;
   color: white;
   padding-left: 10px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
