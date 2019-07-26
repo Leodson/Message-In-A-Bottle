@@ -76,6 +76,12 @@ class CreateHandler(webapp2.RequestHandler):
 
         self.redirect('/profile')
 
+class AboutHandler(webapp2.RequestHandler):
+    def get(self):
+        create_template = jinja_env.get_template('templates/about.html')
+        self.response.headers['Content-Type'] = 'text/html'
+        self.response.write(create_template.render())
+
 class ViewMessagesHandler(webapp2.RequestHandler):
     def get(self):
         curr_user = User.query(User.email_address == users.get_current_user().email()).get()
@@ -116,4 +122,5 @@ app = webapp2.WSGIApplication([
     ('/create', CreateHandler),
     ('/view_messages', ViewMessagesHandler),
     ('/play_game', PlayGameHandler),
+    ('/about', AboutHandler)
 ], debug=True)
