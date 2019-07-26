@@ -1,19 +1,23 @@
 html{
-  background: url("blue.jpg");
+  background: url("blue.jpg") no-repeat center center fixed;
 }
 
-.splash{
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  z-index: 2;
+img{
+  border-radius: 50%;
 }
 
-.nicole{
+.background{
   position: relative;
-  left: 0px;
   top: 0px;
-  z-index: 3;
-  left: 200px;
-  top: 170px;
+  left: 0px;
+}
+
+.foreground{
+  position: absolute;
+  top: 175px;
+  left:210px;
+}
+
+.visual{
+  position: relative;
 }
